@@ -34,11 +34,7 @@ final class ScalarTypeComparator
             return true;
         }
 
-        if (! $firstType instanceof BooleanType) {
-            return false;
-        }
-
-        return $secondType instanceof BooleanType;
+        return $firstType instanceof BooleanType && $secondType instanceof BooleanType;
     }
 
     /**
@@ -54,6 +50,7 @@ final class ScalarTypeComparator
             return false;
         }
 
+        // note: do not use isString() helper methods on types, as they provide generic types, we need exact types here
         // treat class-string and string the same
         if ($firstType instanceof ClassStringType && $secondType instanceof StringType) {
             return false;
