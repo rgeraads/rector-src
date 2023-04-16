@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\TypeDeclaration\Rector\StmtsAwareInterface;
 
+use Rector\Core\Contract\PhpParser\Node\StmtsAwareInterface;
 use PhpParser\Node;
 use Rector\Core\Rector\AbstractRector;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
@@ -43,11 +44,11 @@ CODE_SAMPLE
      */
     public function getNodeTypes(): array
     {
-        return [\Rector\Core\Contract\PhpParser\Node\StmtsAwareInterface::class];
+        return [StmtsAwareInterface::class];
     }
 
     /**
-     * @param \Rector\Core\Contract\PhpParser\Node\StmtsAwareInterface $node
+     * @param StmtsAwareInterface $node
      */
     public function refactor(Node $node): ?Node
     {
